@@ -1,0 +1,69 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>下班时间计算器</title>
+  <link rel="icon" type="image/x-icon" href="./logo2.ico" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-shape bg-shape-1"></div>
+  <div class="bg-shape bg-shape-2"></div>
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">KLEE AFTERWORK</p>
+      <h1>下班时间计算器</h1>
+      <p class="subtitle">输入上班时间，自动按 8 小时 45 分钟计算下班时间。</p>
+    </header>
+
+    <section class="card time-panel">
+      <p class="panel-title">输入上班时间</p>
+      <input id="startTimeInput" class="time-input" type="time" value="09:00" step="60" />
+      <p class="selected-text">当前选择：<span id="selectedStartText">09:00</span></p>
+      <p class="reminder-text" id="reminderText">提醒状态：未设置</p>
+    </section>
+
+    <div class="actions">
+      <button id="calcBtn">计算下班时间</button>
+      <button id="resetBtn" class="ghost">重置为 09:00</button>
+      <button id="minimizeBtn" class="ghost">最小化到托盘</button>
+    </div>
+
+    <section class="result card" id="resultCard">
+      <p id="offworkText">下班时间：--:--</p>
+      <p id="countdownText">下班倒计时：--:--:--</p>
+    </section>
+
+    <section class="name-footer card">
+      <p id="nameStatusText">当前姓名：未设置</p>
+      <button id="editNameBtn" class="tiny-btn ghost">修改姓名</button>
+    </section>
+
+    <section class="extra-footer card">
+      <p class="extra-title">程序员常用网址</p>
+      <div class="extra-grid">
+        <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://stackoverflow.com" target="_blank" rel="noreferrer">Stack Overflow</a>
+        <a href="https://developer.mozilla.org" target="_blank" rel="noreferrer">MDN Docs</a>
+        <a href="https://www.npmjs.com" target="_blank" rel="noreferrer">npm</a>
+      </div>
+    </section>
+
+    <p class="tips">支持托盘常驻、最小化隐藏、单实例运行、下班到点提醒。</p>
+  </main>
+
+  <div class="modal-mask" id="nameModalMask" hidden>
+    <div class="modal-card">
+      <h3 id="nameModalTitle">填写姓名</h3>
+      <input id="nameInput" class="name-input" type="text" placeholder="请输入姓名" maxlength="20" />
+      <div class="modal-actions">
+        <button id="saveNameBtn">保存</button>
+        <button id="cancelNameBtn" class="ghost">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

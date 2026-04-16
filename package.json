@@ -1,0 +1,55 @@
+{
+  "name": "afterwork-calculator-electron",
+  "version": "1.0.0",
+  "description": "Afterwork calculator desktop app",
+  "main": "main.js",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.afterwork.calculator",
+    "productName": "AfterWorkCalculator",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "renderer.js",
+      "styles.css",
+      "keli.webp",
+      "logo2.webp",
+      "logo2.ico"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "logo2.ico",
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "AfterWorkCalculator",
+      "installerIcon": "logo2.ico",
+      "uninstallerIcon": "logo2.ico"
+    }
+  }
+}
